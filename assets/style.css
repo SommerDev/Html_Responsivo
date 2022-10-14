@@ -1,0 +1,103 @@
+
+body {
+    height: 100%;
+    background: #8c8ce9;
+}
+
+body p {
+    color: var(--white-color);
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 25%;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 15px;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo {
+    margin-right: 50px;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+#toggler .navbar label {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .menu{
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+    .list {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    .navbar label {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    #toggler:checked ~ .menu{
+        max-height: 100%;
+    }
+}
+
+.card {
+    perspective: 1000px;
+    height: 620px;
+    width: 520px;
+    position: relative;
+    margin: 5px;
+}
+
+.card img {
+    width: 100%;
+}
+
+.card .back {
+    position: absolute;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+    transition: transform 0.4s linear;
+}
+
+.card .front {
+    position: absolute;
+    transform: rotateY(100deg);
+    backface-visibility: hidden;
+    transition: transform 0.4s linear;
+}
+
+.card:hover .back {
+    transform: rotateY(-100deg);
+    cursor: pointer;
+}
+
+.card:hover .front {
+    transform: rotateY(0deg);
+    cursor: pointer;
+}
